@@ -41,9 +41,7 @@
       max-width: 250px;
       width: 100%;
       height: auto;
-      transition: transform 0.4s ease;
     }
-    .image:hover { transform: scale(1.05); }
 
     .header1 {
       font-family: 'Righteous', cursive;
@@ -57,7 +55,6 @@
       font-size: 1.3vw;
       color: rgba(255,255,255,0.55);
       margin-bottom: 0.6rem;
-      transition: color 0.3s;
     }
     .header3 {
       font-family: 'Ubuntu Mono', monospace;
@@ -108,12 +105,6 @@
     }
     .email-tooltip summary::-webkit-details-marker { display: none; }
 
-    .card-inner {
-      transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.3, 1);
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
-
     @media screen and (max-width: 785px) {
       .header1 { font-size: 8vw; }
       .link1 { font-size: 4vw; }
@@ -139,21 +130,19 @@
 
   <div class="container">
     <div class="center">
-      <div class="card-inner" id="card">
-        <div class="row d-flex flex-wrap align-items-center">
-          <div class="col-md-5 text-center">
-            <img class="image img-fluid" src="assets/profile.jpg" alt="Arthur">
-          </div>
-          <div class="col-md">
-            <p class="header1">Arthur</p>
-            <p class="header3">aether_dz</p>
-            <p class="header2">Security Researcher / Software Engineer</p>
-            <a class="link1" href="https://github.com/aether-dz" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-            <a class="link1" href="https://linkedin.com/in/aether-dz" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-            <a class="link1" href="https://instagram.com/zaikabdou" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-            <a class="link1" href="https://x.com/aether_dz" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
-            <a class="link1" href="https://t.me/pp9ps" target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i></a>
-          </div>
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="col-md-5 text-center">
+          <img class="image img-fluid" src="assets/profile.jpg" alt="Arthur">
+        </div>
+        <div class="col-md">
+          <p class="header1">Arthur</p>
+          <p class="header3">aether_dz</p>
+          <p class="header2">Security Researcher / Software Engineer</p>
+          <a class="link1" href="https://github.com/aether-dz" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+          <a class="link1" href="https://linkedin.com/in/aether-dz" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+          <a class="link1" href="https://instagram.com/zaikabdou" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a class="link1" href="https://x.com/aether_dz" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+          <a class="link1" href="https://t.me/pp9ps" target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i></a>
         </div>
       </div>
     </div>
@@ -185,30 +174,6 @@
       },
       retina_detect: true
     });
-
-    // 3D tilt on mouse move
-    (function() {
-      var card = document.getElementById('card');
-      var ticking = false;
-      if (!card) return;
-
-      document.addEventListener('mousemove', function(e) {
-        if (!ticking) {
-          window.requestAnimationFrame(function() {
-            var x = (e.clientX / window.innerWidth - 0.5) * 2;
-            var y = (e.clientY / window.innerHeight - 0.5) * 2;
-            card.style.transform =
-              'perspective(600px) rotateY(' + (x * 5) + 'deg) rotateX(' + (-y * 5) + 'deg)';
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-
-      document.addEventListener('mouseleave', function() {
-        card.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg)';
-      });
-    })();
   </script>
 </body>
 </html>
