@@ -18,8 +18,7 @@
     }
     canvas { display: block; vertical-align: bottom; }
     #particles-js {
-      position: fixed;
-      top: 0; left: 0;
+      position: absolute;
       width: 100%;
       height: 100%;
       z-index: 0;
@@ -32,49 +31,49 @@
       transform: translate(-50%, -50%);
       z-index: 1;
       width: 90%;
-      max-width: 1000px;
+      max-width: 1100px;
     }
 
     .image {
       border-radius: 50%;
       border: 3px solid rgba(255,255,255,0.08);
-      max-width: 250px;
+      max-width: 256px;
       width: 100%;
       height: auto;
     }
 
     .header1 {
       font-family: 'Righteous', cursive;
-      font-size: 5.5vw;
+      font-size: 6vw;
       color: #fff;
       margin-bottom: 0;
       line-height: 1.1;
     }
     .header2 {
       font-family: 'Ubuntu Mono', monospace;
-      font-size: 1.3vw;
+      font-size: 1.4vw;
       color: rgba(255,255,255,0.55);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
     .header3 {
       font-family: 'Ubuntu Mono', monospace;
-      font-size: 2vw;
+      font-size: 2.2vw;
       color: rgba(255,255,255,0.3);
       margin-bottom: 0.2rem;
     }
 
     .link1 {
       font-family: 'Ubuntu Mono', monospace;
-      font-size: 2.5vw;
+      font-size: 2.8vw;
       color: rgba(255,255,255,0.65);
-      margin: 0 4px;
+      margin: 0 5px;
       transition: all 0.3s ease;
       text-decoration: none !important;
       display: inline-block;
     }
     .link1:hover {
       color: #00ffaa;
-      transform: translateY(-4px) scale(1.05);
+      transform: translateY(-3px);
     }
 
     .email-tooltip {
@@ -113,14 +112,14 @@
     @media screen and (max-width: 765px) {
       body { text-align: center; overflow-y: auto; }
       .center { position: relative; top: auto; left: auto; transform: none; padding: 50px 20px; }
-      .header1 { font-size: 10vw; }
-      .header2 { font-size: 3vw; }
+      .header1 { font-size: 9vw; }
+      .header2 { font-size: 2.5vw; }
       .header3 { font-size: 4vw; }
-      .link1 { font-size: 6vw; }
+      .link1 { font-size: 5vw; }
       .image { max-width: 160px; margin-bottom: 10px; }
     }
     @media screen and (min-width: 1390px) {
-      .header2 { font-size: 1vw; }
+      .header2 { font-size: 1.1vw; }
     }
   </style>
 </head>
@@ -159,18 +158,18 @@
   <script>
     particlesJS('particles-js', {
       particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
+        number: { value: 120, density: { enable: true, value_area: 800 } },
         color: { value: "#ffffff" },
         shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 160, color: "#ffffff", opacity: 0.25, width: 1.5 },
-        move: { enable: true, speed: 2.5, direction: "none", random: true, straight: false, out_mode: "out" }
+        opacity: { value: 0.7, random: true, anim: { enable: true, speed: 0.3, opacity_min: 0.15 } },
+        size: { value: 6, random: true, anim: { enable: true, speed: 1, size_min: 1 } },
+        line_linked: { enable: true, distance: 180, color: "#ffffff", opacity: 0.5, width: 3 },
+        move: { enable: true, speed: 3, direction: "none", random: true, straight: false, out_mode: "out", attract: { enable: true, rotateX: 600, rotateY: 1200 } }
       },
       interactivity: {
         detect_on: "canvas",
-        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: false }, resize: true },
-        modes: { grab: { distance: 220, line_linked: { opacity: 0.7 } } }
+        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
+        modes: { grab: { distance: 250, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
       },
       retina_detect: true
     });
